@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'BlackOpsOne';
+  src: url('Black_Ops_One/BlackOpsOne-Regular.ttf') format('truetype');
+}
+
+/* --- Reset & 基础排版 --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'BlackOpsOne', 'Open Sans', sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+/* --- 全局媒体格式 --- */
+img, video, canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- 链接 & 按钮基础样式 --- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* --- 列表基础样式 --- */
+ul, ol {
+  list-style: none;
+}
+
+/* --- 输入框基础样式（来自 CV & Contact 页） --- */
+input, textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px auto 0;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* --- 全局段落样式 --- */
+p {
+  margin: 10px 0;
+}
+
+/* --- CSS 变量占位（主题色放入 theme.css） --- */
+:root {
+  --bg-color: #00001a;
+  --text-color: #dcffb8;
+  --frame-color: #dcffb8;
+}

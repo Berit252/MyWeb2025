@@ -1,0 +1,187 @@
+/* ==========================================
+   layout.css — 全站布局、尺寸、定位
+   ========================================== */
+
+/* ------- 页面 & 背景布局 ------- */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;   /* 阻止页面拖动 */
+  position: relative;
+}
+
+/* 背景图（最底层） */
+#bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;   /* 最底层 */
+  pointer-events: none;
+}
+
+/* 左暗右亮渐变叠层（在背景图上方） */
+#bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--gradient-dark) 0%,
+    var(--gradient-mid) 40%,
+    var(--gradient-light) 100%
+  );
+  z-index: -2;      
+  pointer-events: none;
+}
+
+/* ------- 首页主容器结构 ------- */
+
+.main-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+
+  /* 使用主题变量控制透明度与blur（从 theme.css 获取） */
+  background-color: var(--main-container-bg);
+  backdrop-filter: blur(var(--main-container-blur));
+
+  z-index: 0;    /* 不能高于背景渐变 */
+  overflow: hidden; /* 禁止拖动内部内容 */
+}
+
+/* LEFT PANEL */
+.left-panel {
+  width: 48%;
+  height: 100%;
+  padding: 40px 30px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+/* project slot */
+.project-slot {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.project-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+  width: 52%;
+  height: 100%;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------- 顶部固定按钮（始终可点击） ------- */
+
+#switch {
+  position: fixed;
+  top: -2%;
+  right: 20px;
+  width: 8%;
+  cursor: pointer;
+  z-index: 999;   /* 永远在最上层，可互动 */
+  pointer-events: auto;
+}
+
+/* ------- 导航链接布局 ------- */
+
+.link-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  z-index: 20;
+}
+
+.link-item {
+  flex-grow: 1;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+/* ------- CV 页面部分布局 ------- */
+
+.contact-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.contact-container {
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+  z-index: 9;
+}
+
+.artist-portrait {
+  max-width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  border-radius: 50%;
+}
+
+.contactways {
+  position: fixed;
+  bottom: 0;
+  left: 1%;
+  width: 50%;
+  font-size: 12px;
+}
+
+/* ------- mobile 首页布局 ------- */
+
+.mobile-container,
+.container {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.instructions {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  opacity: 0.5;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

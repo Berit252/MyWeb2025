@@ -1,0 +1,92 @@
+/* ================================
+   effects.css — 交互、动画、hover 效果
+   ================================ */
+
+/* --- 图片组：绿色闪光边框 --- */
+@keyframes blinkBorder {
+  0%, 12%, 50%, 95% { border-color: transparent; }
+  10%, 45%, 75%, 97% { border-color: var(--frame-color); }
+  100% { border-color: var(--frame-color); }
+}
+
+.image-group {
+  border: 2px solid transparent;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-color 0.4s ease;
+}
+
+.image-group:hover {
+  animation: blinkBorder 0.4s forwards;
+}
+
+/* --- 图片 hover 略微放大 --- */
+.project-slot img,
+.image-group img {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.project-slot:hover img,
+.image-group:hover img {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+/* --- Info 文本出现动画（你原本的 slideUp） --- */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.image-group .info {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+/* 鼠标 hover 后 info 出现 */
+.image-group:hover .info {
+  display: block;
+}
+
+/* --- Tooltip hover 显示效果（links.css） --- */
+.tooltip {
+  display: none;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+#webs:hover .tooltip,
+#videos:hover .tooltip,
+.tooltip:hover {
+  display: block;
+}
+
+/* --- 页面切换放大淡出动画（growAndFade） --- */
+@keyframes growAndFade {
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.animating {
+  animation: growAndFade 0.3s forwards;
+}
+
+/* --- Mobile 首页的淡入淡出 --- */
+.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* --- mobile overlay blur 过渡 --- */
+.overlay {
+  backdrop-filter: blur(8px);
+  transition: backdrop-filter 0.3s ease;
+}
