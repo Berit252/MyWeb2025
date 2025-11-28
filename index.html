@@ -1,145 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Berit’s Web</title>
-
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- CSS files -->
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="layout.css">
-    <link rel="stylesheet" href="effect.css">
-    <link rel="stylesheet" href="theme.css">
-
-    <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-      }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tactical Archive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-
-    <!-- 背景图（永远在底层） -->
-    <img id="bg-image" src="img/IMG_7069.jpeg" alt="background">
-    <div id="bg-gradient"></div>
-
-    <!-- Theme Switch -->
-    <img src="img/On-Off.png" id="switch" alt="theme-switch">
-
-    <!-- MAIN GAME UI -->
-    <div class="main-container">
-
-        <!-- LEFT PROJECT GRID -->
-        <div class="left-panel" id="projectGrid"></div>
-
-        <!-- RIGHT DETAIL PANEL -->
-        <div class="right-panel">
-            <div class="project-title" id="detailTitle">Select a Project</div>
-            <div class="project-date" id="detailDate"></div>
-            <div class="project-desc" id="detailDesc">Hover or click a project on the left.</div>
-            <img id="detailImg" class="preview-img" style="display:none;">
-            <a id="detailBtn" class="enter-button" href="#" style="display:none;">Access Project</a>
+<body class="lang-en"> <div id="language-tag">
+        <div class="tag-header">
+            <div class="led-light"></div>
+            <span class="tag-title">SYS_LANG</span>
         </div>
+        <div class="tag-display" id="current-lang-display">EN / 中文</div>
+        <div class="tag-controls">
+            <button class="lang-btn" data-lang="en">ENGLISH</button>
+            <div class="divider"></div>
+            <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+    </div>
+
+    <div id="app-container">
+        
+        <div id="bg-overlay"></div>
+
+        <aside id="sidebar">
+            <div class="year-filter active" data-year="All" data-i18n="filter.all">ALL</div>
+            <div class="year-filter" data-year="2025">2025</div>
+            <div class="year-filter" data-year="2024">2024</div>
+            <div class="year-filter" data-year="2023">2023</div>
+            <div class="year-filter" data-year="2022">2022</div>
+        </aside>
+
+        <section id="work-grid-area">
+            </section>
+
+        <section id="detail-panel">
+            <div id="detail-content">
+                <h1 id="work-title">SELECT WORK</h1>
+                <p id="work-time">TIME_STAMP</p>
+                
+                <div class="divider-line"></div>
+
+                <h2 class="section-label" data-i18n="label.intro">Introduction</h2>
+                <div id="work-intro-text">
+                    </div>
+            </div>
+            
+            <button id="view-detail-btn">
+                <span data-i18n="btn.view">View Detail</span>
+                <div class="btn-frame"></div>
+            </button>
+        </section>
 
     </div>
 
-    <!-- Bottom Link Section -->
-    <div class="link-container">
+    <nav id="footer-nav">
+        <a href="mailto:your.email@example.com" class="footer-btn" data-i18n="nav.contact">Contact</a>
 
-      <div class="link-item" id="webs">
-        <a href="#">webs</a>
-        <div class="tooltip">
-          <a href="https://berit252.github.io/SPW/" target="_blank">SPW 1.1</a><br>
-          <a href="https://berit252.github.io/SPW2.0/" target="_blank">SPW 2.0</a>
+        <div class="nav-group">
+            <span class="footer-btn" data-i18n="nav.video">Videos</span>
+            <div class="popup-menu">
+                <a href="https://www.youtube.com/" target="_blank" class="popup-link">YOUTUBE</a>
+                <a href="https://www.bilibili.com/" target="_blank" class="popup-link">BILIBILI</a>
+            </div>
         </div>
-      </div>
+        
+        <a href="indexCV.html" class="footer-btn" data-i18n="nav.cv">CV</a>
 
-      <div class="link-item" id="videos">
-        <a href="#">videos</a>
-        <div class="tooltip">
-          <a href="https://www.youtube.com/channel/UCR7-zHbCSnKEdc8faRAZ83A" target="_blank">youtube</a><br>
-          <a href="https://space.bilibili.com/38318239" target="_blank">bilibili</a><br>
-          <a href="https://www.xiaohongshu.com/user/profile/5f3f89a4000000000101ed42" target="_blank">red</a>
+        <div class="nav-group">
+            <span class="footer-btn" data-i18n="nav.other">Others</span>
+            <div class="popup-menu">
+                <a href="https://berit252.github.io/SPW/" target="_blank" class="popup-link">SPW 1.1</a>
+                <a href="https://berit252.github.io/SPW2.0/" target="_blank" class="popup-link">SPW 2.0</a>
+                <a href="https://berittang252.artstation.com/" target="_blank" class="popup-link">ArtStation</a>
+            </div>
         </div>
-      </div>
+    </nav>
 
-      <div class="link-item"><a href="indexCV.html">CV</a></div>
-      <div class="link-item"><a href="contact.html">contact</a></div>
-
-    </div>
-
-    <!-- Light/Dark Switch Script -->
-    <script>
-      const switchBtn = document.getElementById('switch');
-      switchBtn.addEventListener('click', () => {
-        const html = document.documentElement;
-        const current = html.getAttribute('data-theme');
-
-        html.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
-
-        switchBtn.style.transition = "transform 0.25s ease";
-        switchBtn.style.transform = "translateY(16px)";
-        setTimeout(() => switchBtn.style.transform = "translateY(0)", 250);
-      });
-    </script>
-
-    <!-- PROJECT LIST SCRIPT -->
-    <script>
-        const projects = [
-            {
-                title: "Close Up A Bit",
-                date: "10.2023",
-                desc: "Communicate with me here without words,<br>just get closer.",
-                thumb: "img/C021.jpeg",
-                preview: "img/C021.jpeg",
-                url: "./DetailPages/CloseUpABit.html"
-            },
-            {
-                title: "The Same Underneath",
-                date: "09.2023",
-                desc: "An installation using ANS's structure as inspiration.",
-                thumb: "img/C026.jpg",
-                preview: "img/C022.jpg",
-                url: "./DetailPages/TheSameUnderneath.html"
-            },
-            {
-                title: "Flow",
-                date: "09.2023",
-                desc: "An experimental video.",
-                thumb: "img/C023.jpg",
-                preview: "img/C027.jpg",
-                url: "./DetailPages/Flow.html"
-            }
-        ];
-
-        const grid = document.getElementById("projectGrid");
-
-        projects.forEach((p, index) => {
-            const div = document.createElement("div");
-            div.className = "project-slot";
-            div.innerHTML = `<img src="${p.thumb}">`;
-            div.onmouseover = () => showDetails(index);
-            div.onclick = () => showDetails(index);
-            grid.appendChild(div);
-        });
-
-        function showDetails(i) {
-            const p = projects[i];
-            detailTitle.innerHTML = p.title;
-            detailDate.innerHTML = p.date;
-            detailDesc.innerHTML = p.desc;
-            detailImg.src = p.preview;
-
-            detailImg.style.display = "block";
-            detailBtn.style.display = "inline-block";
-            detailBtn.href = p.url;
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>

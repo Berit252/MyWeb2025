@@ -3,51 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artwork Details #01</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../styleCV.css">
-    <link rel="stylesheet" type="text/css" href="./Gallery.css">
+    <title>Project #08</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+SC:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleDetail.css">
 </head>
-<body>
-  <img src="../img/On-Off.png" id="switch" alt="switch">
-  <img src="../img/backBlack.png" id="backBlack" alt="backBlack">
-  <img src="../img/backWhite.png" id="backWhite" alt="backWhite">
+<body class="lang-en">
 
-  <div>
-    <main>
-      <div class="gallery">
-        <button class="slide-arrow left-arrow" onclick="moveSlide(-1)">&#10094;</button>
-        <div class="slide-wrapper">
-            <div class="slides">
-                <img src="../img/CloseUpImgs/CloseUpABit-21.jpg" alt="Artwork Image 1">
-                <img src="../img/CloseUpImgs/CloseUpABit-29.jpg" alt="Artwork Image 2">
-                <img src="../img/CloseUpImgs/CloseUpABit-18.jpg" alt="Artwork Image 3">
-                <img src="../img/CloseUpImgs/DSC01104.JPG" alt="Artwork Image 4">
-                <img src="../img/CloseUpImgs/CloseUpABit-22.jpg" alt="Artwork Image 5">
+    <div class="detail-container">
+        
+        <header class="detail-header">
+            <a href="../index.html" class="back-btn">
+                <span class="arrow">&lt;&lt;</span> RETURN
+            </a>
+            <div class="header-meta">
+                <span class="project-id">ID: #08</span>
+                <span class="project-year">2023.10.</span>
             </div>
-        </div>
-        <button class="slide-arrow right-arrow" onclick="moveSlide(1)">&#10095;</button>
-      </div>
-      <div class="description">
-          <h1 class="title">Close Up A Bit</h1>
-          <p>
-            也许人与人的遇见真的会产生某种磁场, 不然如何解释我靠近你时产生的兴奋与慌张? 贫乏无知的我只能用生物学的角度来解释与探索。<br/>
-            Perhaps there is a certain magnetic force that arises when people interact. How else could I explain the mix of excitement and anxiety that I feel whenever I get close to you? As someone who lacks wealth and knowledge, I can only attempt to understand and explore it through a biological lens.
-          </p>
-          <p>
-            在这里同我交流, 不用言语, 只需要靠近一点。<br/>
-            Communicate with me here without words, just get closer.
-          </p>
-          <br/><br/>
-          <p class="bluetext">
-            10.2023.<br/><br/>felt, 6 NeoPixeL Rings, electric wires, acrylic on PVC sheets, Arduino Uno, 3 ultrasonic distance sensors, glass, power bank, wood board<br/>size: 33x45x25 cm^3
-            <br/><br/>
-          </p>
-      </div>
-      <iframe width="100%" height="420hv" src="https://www.youtube.com/embed/bocu_YvHOkM?si=quuaWS_qoJH0KW4t" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </main>
-  </div>
+        </header>
 
-  <script src="../scriptCV.js"></script>
+        <div class="content-wrapper">
+            
+            <div class="gallery-section">
+                
+                <div class="gallery-scroll-container" id="galleryScroll">
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/TPtSL63b/Close_Up_ABit_21.jpg?text=Image+01" alt="Project View 1">
+                        <div class="item-overlay"></div> </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/vm0jgsZf/Close_Up_ABit_22.jpg?text=Image+02" alt="Project View 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/MG94MSpy/Close_Up_ABit_29.jpg?text=Image+03" alt="Project View 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/nL35jJh7/DSC01104.jpg?text=Image+04" alt="Project View 4">
+                    </div>
+                    <div class="gallery-item video-item">
+                        <div class="video-wrapper">
+                            <div class="video-mask" id="videoMask"></div>
+                            <iframe 
+                                src="https://www.youtube.com/embed/bocu_YvHOkM?si=6o-F_tbwpCCArP6a" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-controls">
+                    <div class="scroll-bar-track">
+                        <div class="scroll-bar-thumb" id="scrollThumb"></div>
+                    </div>
+                    <div class="gallery-counter">
+                        <span id="currentIdx">01</span> / <span id="totalIdx">04</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h1 class="project-title">Close Up A Bit</h1> 
+                <div class="divider-line"></div>
+
+                <div class="text-body">
+                    <p class="en-text">
+                      Perhaps there is a certain magnetic force that arises when people interact. How else could I explain the mix of excitement and anxiety that I feel whenever I get close to you? As someone who lacks wealth and knowledge, I can only attempt to understand and explore it through a biological lens.
+                    </p><br>
+                    <p class="zh-text">
+                      也许人与人的遇见真的会产生某种磁场, 不然如何解释我靠近你时产生的兴奋与慌张? 贫乏无知的我只能用生物学的角度来解释与探索。
+                    </p>
+                    <br>
+                    <p class="en-text">
+                      Communicate with me here without words, just get closer.
+                    </p><br>
+                    <p class="zh-text">
+                      在这里同我交流, 不用言语, 只需要靠近一点。
+                    </p>
+                </div>
+
+                <div class="specs-box">
+                    <div class="spec-row">
+                        <span class="label">MATERIAL:</span>
+                        <span class="val">felt, 6 NeoPixeL Rings, electric wires, acrylic on PVC sheets, Arduino Uno, 3 ultrasonic distance sensors, glass, power bank, wood board</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="label">SIZE:</span>
+                        <span class="val">33 x 45 x 25 cm^3</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal-overlay">
+        <span class="modal-close">&times; CLOSE</span>
+        <div class="modal-content-wrapper">
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script src="scriptDetail.js"></script>
 </body>
 </html>
