@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project #05</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+SC:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleDetail.css">
+</head>
+<body class="lang-en">
+
+    <div class="detail-container">
+        
+        <header class="detail-header">
+            <a href="../index.html" class="back-btn">
+                <span class="arrow">&lt;&lt;</span>RETURN
+            </a>
+            <div class="header-meta">
+                <span class="project-id">ID: #05</span>
+                <span class="project-year">2023.12.</span>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <div class="gallery-section">
+                
+                <div class="gallery-scroll-container" id="galleryScroll">
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/Vk6XsQ25/Final_08.jpg?text=Image+01" alt="Project View 1">
+                        <div class="item-overlay"></div> 
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/CxQkzrVf/Final_19.jpg?text=Image+02" alt="Project View 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/QdtcNGvN/Final_17.jpg?text=Image+03" alt="Project View 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/vZB58FCB/Final_10.jpg?text=Image+04" alt="Project View 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/mgD7ZfKb/Final_05.jpg?text=Image+05" alt="Project View 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/t4MWYvHJ/Final_18.jpg?text=Image+06" alt="Project View 6">
+                    </div>
+                    <div class="gallery-item video-item">
+                        <div class="video-wrapper">
+                            <div class="video-mask"></div>
+                            <iframe 
+                                src="https://www.youtube.com/embed/Y0tz3U5Oa7s?si=Alj79ayQ6OMK4NX0" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="gallery-item video-item">
+                        <div class="video-wrapper">
+                            <div class="video-mask"></div>
+                            <iframe 
+                                src="https://www.youtube.com/embed/VvE2b4pWQ3Y?si=qPkLeZGlIE481-Ov" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-controls">
+                    <div class="scroll-bar-track">
+                        <div class="scroll-bar-thumb" id="scrollThumb"></div>
+                    </div>
+                    <div class="gallery-counter">
+                        <span id="currentIdx">01</span> / <span id="totalIdx">08</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h1 class="project-title">Ramadan Manual</h1> 
+                <div class="divider-line"></div>
+
+                <div class="text-body">
+                    <p class="en-text">
+                      This set of manuals is written from the perspective of a fictional futuristic machine world. Through it, I hope to provide people a glimpse into this future civilization, while also encouraging the audience to reflect on our society and the complex relationship between humans and machines.
+                    </p>
+                    <br>
+                    <p class="zh-text">
+                      这组手册是从一个原创的虚构未来机器世界的角度编写的。我希望通过它让人们一睹这个未来文明，同时也鼓励观众反思我们的社会以及人与机器(AI)之间复杂的矛盾关系。
+                    </p>
+                </div>
+
+                <div class="specs-box">
+                    <div class="spec-row">
+                        <span class="label">MATERIALS:</span>
+                        <span class="val">4 manuals, 3 pins, foil, iPad</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="label">EACH BOOK SIZE:</span>
+                        <span class="val">17.8 x 13.0 cm^2</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal-overlay">
+        <span class="modal-close">&times; CLOSE</span>
+        <div class="modal-content-wrapper">
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script src="scriptDetail.js"></script>
+</body>
+</html>

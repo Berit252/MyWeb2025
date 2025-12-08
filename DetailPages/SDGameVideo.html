@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project #01</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+SC:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleDetail.css">
+</head>
+<body class="lang-en">
+
+    <div class="detail-container">
+        
+        <header class="detail-header">
+            <a href="../index.html" class="back-btn">
+                <span class="arrow">&lt;&lt;</span> RETURN
+            </a>
+            <div class="header-meta">
+                <span class="project-id">ID: #01</span>
+                <span class="project-year">2024.05.</span>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <div class="gallery-section">
+                
+                <div class="gallery-scroll-container" id="galleryScroll">
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/4NrXypSd/Final_1.jpg?text=Image+01" alt="Project View 1">
+                        <div class="item-overlay"></div> 
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/RVjvhwD0/Final_2.jpg?text=Image+02" alt="Project View 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/5NZfy8Ry/Final_3.jpg?text=Image+03" alt="Project View 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/QxRjCcyV/Final_4.jpg?text=Image+04" alt="Project View 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/DwLnXm9m/SDVideo_Screen_Shot_1.jpg?text=Image+05" alt="Project View 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/K8BxM46K/SDVideo_Screen_Shot_2.jpg?text=Image+06" alt="Project View 6">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/13wsq4k6/SDVideo_Screen_Shot_3.jpg?text=Image+07" alt="Project View 7">
+                    </div>
+                    <div class="gallery-item video-item">
+                        <div class="video-wrapper">
+                            <div class="video-mask" id="videoMask"></div>
+                            <iframe 
+                                src="https://www.youtube.com/embed/-VYVTQ8d6z4?si=jtOaF85rqp-PMBeG" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-controls">
+                    <div class="scroll-bar-track">
+                        <div class="scroll-bar-thumb" id="scrollThumb"></div>
+                    </div>
+                    <div class="gallery-counter">
+                        <span id="currentIdx">01</span> / <span id="totalIdx">08</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h1 class="project-title">Simulation & Dreams - Dream Frames</h1> 
+                <div class="divider-line"></div>
+
+                <div class="text-body">
+                    <p class="en-text">
+                      Animals use mimicry to camouflage themselves, deceiving both predators and prey. Similarly, the human world is filled with comparable mimicry behaviors. Likewise, through simulation, humans manage to survive within their social environments. Many experts from various fields have offered their perspectives on this human social behavior of "simulation." For instance, American communication scholar Walter Lippmann introduced the concept of a "pseudo-environment," Jean Baudrillard discussed simulacra and simulation, and Roger Silverstone proposed the Domestication Theory, among others. Drawing on these theories, I have divided the game map into four modules for players to explore and experience.
+                    </p>
+                    <br>
+                    <p class="zh-text">
+                      动物靠拟态伪装自己，迷惑猎人与猎物。而人类世界也充满类似的拟态行为。同样，通过模仿，人类在自己所处的社会中才得以生存。对于“模仿”这一人类社会行为，许多各领域的专家都提出过各自见解， 像是美国传播学者李普曼（Walter Lippmann）提出的“拟态环境“， 鲍德里亚（Jean Baudrillard）说的拟像和仿真，以及罗杰•西尔弗斯通（Roger Silverstone）的驯化理论， 等。借鉴了这些理论，我将地图主要分成了四个模块，共玩家浏览和体验。
+                    </p>
+                </div>
+
+                <div class="specs-box">
+                    <div class="spec-row">
+                        <span class="label">TECHNICAL TOOLS:</span>
+                        <span class="val">Blender, UE5, PR</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="label">ESTIMATED PLAY TIME:</span>
+                        <span class="val">15 mins</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="label">VIDEO LENGTH:</span>
+                        <span class="val">06min 57s</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal-overlay">
+        <span class="modal-close">&times; CLOSE</span>
+        <div class="modal-content-wrapper">
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script src="scriptDetail.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berit - CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+SC:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesCV.css">
+</head>
+<body class="lang-en">
+
+    <div id="language-tag">
+        <div class="tag-header">
+            <div class="led-light"></div>
+            <span class="tag-title">SYS_LANG</span>
+        </div>
+        <div class="tag-display" id="current-lang-display">EN / 中文</div>
+        <div class="tag-controls">
+            <button class="lang-btn" data-lang="en">ENGLISH</button>
+            <div class="divider"></div>
+            <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+    </div>
+
+    <div class="cv-container">
+        
+        <header class="cv-header">
+            <a href="index.html" class="back-link">&lt; HOME PAGE</a>
+            <h1 class="main-title">Berit - CV</h1>
+            <div class="portrait-wrapper">
+                <img src="./img/untitledIP01.jpg" alt="Portrait" class="artist-portrait">
+            </div>
+        </header>
+
+        <section class="statement">
+            <p data-i18n="cv.statement">
+                Studying in the UK, my work is driven by a passion for experimentation, blending digital methods with the tactile qualities of fine art. I aim to engage viewers as participants, challenging the boundaries between creator and audience, and reflecting on how technology influences our perceptions and narratives. Through my projects, I explore art's evolving role in society, envisioning new possibilities at the nexus of art, technology, and interaction.
+            </p>
+        </section>
+
+        <section class="cv-section">
+            <h2 data-i18n="cv.edu.title">Education</h2>
+            
+            <div class="cv-grid-item">
+                <div class="time-col" data-i18n="cv.edu.1.time">Jun 2024 - Oct 2025</div>
+                <div class="content-col" data-i18n="cv.edu.1.desc">Think Tank Training Centre: CG Asset Creation for Film or Game</div>
+            </div>
+
+            <div class="cv-grid-item">
+                <div class="time-col" data-i18n="cv.edu.1.time">Sep 2022 - May 2025</div>
+                <div class="content-col" data-i18n="cv.edu.1.desc">Kingston School of Art: BA (Hons) Fine Art</div>
+            </div>
+
+            <div class="cv-grid-item">
+                <div class="time-col" data-i18n="cv.edu.2.time">Sep 2021 - May 2022</div>
+                <div class="content-col" data-i18n="cv.edu.2.desc">Central Academy of Fine Arts: International Foundation Course</div>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 data-i18n="cv.exhib.title">Exhibitions (Including Group shows)</h2>
+
+            <div class="cv-grid-item">
+                <div class="time-col">Nov 2025</div>
+                <div class="content-col" data-i18n="cv.exhib.1">Path Drift: Back of The Swan</div>
+            </div>
+            
+            <div class="cv-grid-item">
+                <div class="time-col">May 2024</div>
+                <div class="content-col" data-i18n="cv.exhib.1">Space of Enquiry: Stanley Picker Gallery</div>
+            </div>
+
+            <div class="cv-grid-item">
+                <div class="time-col">Apr 2024</div>
+                <div class="content-col" data-i18n="cv.exhib.2">The Copy Loop: Crit Space</div>
+            </div>
+
+            <div class="cv-grid-item">
+                <div class="time-col">Mar 2024</div>
+                <div class="content-col" data-i18n="cv.exhib.3">Swan Show: The Swan</div>
+            </div>
+
+            <div class="cv-grid-item">
+                <div class="time-col">Dec 2023</div>
+                <div class="content-col" data-i18n="cv.exhib.4">Publication as Exhibition: Stanley Picker Gallery</div>
+            </div>
+
+            <div class="cv-grid-item">
+                <div class="time-col">Oct 2023</div>
+                <div class="content-col" data-i18n="cv.exhib.5">Bursary Award Pop Show: Kingston University</div>
+            </div>
+
+            <div class="cv-grid-item">
+                <div class="time-col">Nov 2022</div>
+                <div class="content-col" data-i18n="cv.exhib.6">Collision, Collaboration, Collusion: The Swan</div>
+            </div>
+
+            <div class="cv-grid-item">
+                <div class="time-col">May 2021</div>
+                <div class="content-col" data-i18n="cv.exhib.7">Exhibition about Body Shaming: Shanghai Himalayas Museum</div>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 data-i18n="cv.work.title">Workshop/Event</h2>
+            <div class="cv-grid-item">
+                <div class="time-col">Feb 2023</div>
+                <div class="content-col" data-i18n="cv.work.1">Picturing Nature: Photography and Collage</div>
+            </div>
+            <div class="cv-grid-item">
+                <div class="time-col">22-23</div>
+                <div class="content-col" data-i18n="cv.work.2">Course Rep Programme</div>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 data-i18n="cv.lang.title">Languages</h2>
+            <p style="padding-left: 160px; color: #fff;" data-i18n="cv.lang.content">Chinese & English</p>
+        </section>
+    </div>
+
+    <script src="scriptCV.js"></script>
+</body>
+</html>

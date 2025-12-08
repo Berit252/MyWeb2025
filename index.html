@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berit's Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="lang-en"> 
+    
+    <div id="orientation-lock">
+        <div class="lock-content">
+            <div class="lock-icon">⟳</div>
+            <h2 class="lock-title">SYSTEM LOCKED</h2>
+            <p class="lock-msg">PLEASE ROTATE DEVICE<br>TO ACCESS ARCHIVE</p>
+            <div class="lock-scan-line"></div>
+        </div>
+    </div>
+
+    <div id="language-tag">
+        <div class="tag-header">
+            <div class="led-light"></div>
+            <span class="tag-title">SYS_LANG</span>
+        </div>
+        <div class="tag-display" id="current-lang-display">EN / 中文</div>
+        <div class="tag-controls">
+            <button class="lang-btn" data-lang="en">ENGLISH</button>
+            <div class="divider"></div>
+            <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+    </div>
+
+    <div id="app-container">
+        
+        <div id="bg-overlay"></div>
+
+        <aside id="sidebar">
+            <div class="year-filter active" data-year="All" data-i18n="filter.all">ALL</div>
+            <div class="year-filter" data-year="2025">2025</div>
+            <div class="year-filter" data-year="2024">2024</div>
+            <div class="year-filter" data-year="2023">2023</div>
+            <div class="year-filter" data-year="2022">2022</div>
+        </aside>
+
+        <section id="work-grid-area">
+            </section>
+
+        <section id="detail-panel">
+            <div id="detail-content">
+                <h1 id="work-title">SELECT WORK</h1>
+                <p id="work-time">TIME_STAMP</p>
+                
+                <div class="divider-line"></div>
+
+                <h2 class="section-label" data-i18n="label.intro">Introduction</h2>
+                <div id="work-intro-text">
+                    </div>
+            </div>
+            
+            <button id="view-detail-btn">
+                <span data-i18n="btn.view">View Detail</span>
+                <div class="btn-frame"></div>
+            </button>
+        </section>
+
+    </div>
+
+    <nav id="footer-nav">
+        <a href="mailto:your.email@example.com" class="footer-btn" data-i18n="nav.contact">Contact</a>
+
+        <div class="nav-group">
+            <span class="footer-btn" data-i18n="nav.video">Videos</span>
+            <div class="popup-menu">
+                <a href="https://www.youtube.com/" target="_blank" class="popup-link">YOUTUBE</a>
+                <a href="https://www.bilibili.com/" target="_blank" class="popup-link">BILIBILI</a>
+            </div>
+        </div>
+        
+        <a href="indexCV.html" class="footer-btn" data-i18n="nav.cv">CV</a>
+
+        <div class="nav-group">
+            <span class="footer-btn" data-i18n="nav.other">Others</span>
+            <div class="popup-menu">
+                <a href="https://berit252.github.io/SPW/" target="_blank" class="popup-link">SPW 1.1</a>
+                <a href="https://berit252.github.io/SPW2.0/" target="_blank" class="popup-link">SPW 2.0</a>
+                <a href="https://berittang252.artstation.com/" target="_blank" class="popup-link">ArtStation</a>
+            </div>
+        </div>
+    </nav>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
