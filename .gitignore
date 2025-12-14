@@ -1,0 +1,58 @@
+# ==========================
+# 操作系统生成的文件 (OS Generated)
+# ==========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ==========================
+# 编辑器配置文件 (Editor)
+# ==========================
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# 历史记录缓存
+.history/
+
+# ==========================
+# 依赖与环境 (Dependencies)
+# ==========================
+# 虽然你现在用的是 CDN，但为了防止以后用 npm，建议加上
+node_modules/
+dist/
+build/
+
+# ==========================
+# 环境变量与安全 (Security)
+# ==========================
+# 绝对不要上传包含密钥的文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==========================
+# 日志文件 (Logs)
+# ==========================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==========================
+# 大文件/设计源文件 (Optional)
+# ==========================
+# 如果你不想上传太大的 PSD 或视频源文件，可以把下面的 # 去掉
+# *.psd
+# *.mov
+# *.mp4
