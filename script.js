@@ -346,3 +346,39 @@ document.addEventListener('click', function() {
         group.classList.remove('active');
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const contactBtn = document.getElementById('contact-btn');
+    const myEmail = "berittang252@gmail.com"; // 你的邮箱地址
+
+    if (contactBtn) {
+        contactBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // 阻止链接跳转
+
+            // 使用现代剪切板 API
+            navigator.clipboard.writeText(myEmail).then(() => {
+                
+                // 1. 保存原始文字 (例如 "CONTACT" 或 "联系")
+                const originalText = contactBtn.textContent;
+                
+                // 2. 更改文字提示用户成功
+                // 为了适配你的战术风格，我们显示双语提示
+                contactBtn.textContent = "E-MAIL COPIED";
+                contactBtn.style.color = "#fff"; // 临时变白高亮
+                contactBtn.style.borderColor = "#fff";
+
+                // 3. 2秒后恢复原始状态
+                setTimeout(() => {
+                    contactBtn.textContent = originalText;
+                    contactBtn.style.color = ""; // 恢复默认颜色
+                    contactBtn.style.borderColor = "";
+                }, 2000);
+                
+            }).catch(err => {
+                console.error('COPY FAILED:', err);
+                alert("复制失败，请手动复制: " + myEmail);
+            });
+        });
+    }
+});

@@ -32,12 +32,16 @@ body.lang-zh { font-family: var(--font-zh); font-weight: 300; }
 /* --- Draggable Language Tag (Rectangular HUD) --- */
 #language-tag {
     position: fixed;
-    top: 40px;
+    /* 移除 top */
+    top: auto; 
+    /* 修改为右下角 */
+    bottom: 40px; 
     right: 40px;
+    
     width: 140px;
     background: rgba(20, 20, 20, 0.95);
     border: 1px solid #444;
-    z-index: 1000;
+    z-index: 2000; /* 确保层级够高 */
     cursor: move;
     padding: 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.8);
@@ -331,107 +335,109 @@ body.lang-zh { font-family: var(--font-zh); font-weight: 300; }
     pointer-events: none;
 }
 
-/* --- Footer --- */
+/* --- Footer / Dropdown/Popup Menu Logic --- */
+
 #footer-nav {
     position: fixed;
-    bottom: 30px;
-    width: 100%;
+    /* 定位到左下角 */
+    bottom: 40px;
+    left: 40px;
+    /* 移除之前的宽度和居中设置 */
+    width: auto;
+    right: auto;
+    
     display: flex;
-    justify-content: space-around;
-    padding: 0 100px;
+    /* 改为垂直排列 */
+    flex-direction: column; 
+    align-items: flex-start; /* 靠左对齐 */
+    gap: 15px; /* 按钮之间的间距 */
+    
+    padding: 0;
+    background: transparent; /* 移除背景条，让按钮看起来像悬浮的 */
+    border-top: none; /* 移除顶部分割线 */
+    z-index: 1000;
 }
 
 .footer-btn {
     color: #666;
     font-size: 14px;
     cursor: pointer;
-    font-family: var(--font-en); /* Navigation implies system labels */
+    font-family: var(--font-en);
     text-transform: uppercase;
     transition: 0.3s;
     text-decoration: none;
+    /* 给按钮加个背景，增加可点击区域感 */
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-left: 2px solid transparent; /* 左侧装饰线预留 */
 }
 
-.footer-btn:hover {
+.footer-btn:hover, .nav-group:hover .footer-btn {
     color: var(--accent-red);
     text-shadow: 0 0 5px var(--accent-red);
+    background: rgba(0, 0, 0, 0.9);
+    border-left: 2px solid var(--accent-red); /* 悬停时左侧亮起红线 */
 }
 
-/* --- Dropdown/Popup Menu Logic --- */
+/* --- Dropdown/Popup Menu Logic (Updated for Side Pop-out) --- */
 
-/* Wrapper for the button + menu */
 .nav-group {
     position: relative;
     display: flex;
     align-items: center;
-    height: 100%;
     cursor: pointer;
-    /* Added padding to increase hit area */
-    padding: 0 10px; 
 }
 
 /* The Floating Menu Box */
 .popup-menu {
     position: absolute;
-    bottom: 100%; /* Positions it above the footer */
-    left: 50%;
-    /* Start closer to the text so the jump isn't as far */
-    transform: translateX(-50%) translateY(5px); 
+    /* 修改弹出方向：向右弹出 */
+    left: 100%; 
+    top: 50%;
+    /* 初始位置：稍微靠左一点，透明 */
+    transform: translateY(-50%) translateX(10px); 
+    
+    /* 移除之前的 bottom 设置 */
+    bottom: auto; 
     
     background: rgba(20, 20, 20, 0.98);
     border: 1px solid #444;
     min-width: 120px;
     padding: 5px 0;
     
-    opacity: 0; /* Hidden by default */
-    pointer-events: none; /* Cannot click when hidden */
+    opacity: 0;
+    pointer-events: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
     z-index: 200;
+    
+    /* 增加左边距，别贴太紧 */
+    margin-left: 15px; 
 }
 
-/* Show menu only when the 'active' class is added by JavaScript */
+/* Show menu */
 .nav-group.active .popup-menu {
     opacity: 1;
     pointer-events: auto;
-    /* Move up into position */
-    transform: translateX(-50%) translateY(-10px); 
+    /* 激活时位置 */
+    transform: translateY(-50%) translateX(0); 
 }
 
-/* Keep the "VIDEOS" text glowing red while the menu is open */
-.nav-group.active .footer-btn {
-    color: var(--accent-red);
-    text-shadow: 0 0 5px var(--accent-red);
-}
-
-.nav-group:hover .footer-btn {
-    color: var(--accent-red);
-    text-shadow: 0 0 5px var(--accent-red);
-}
-
-/* --- THE FIX: THE INVISIBLE BRIDGE --- */
-/* This creates a transparent block below the menu that connects it to the button */
-.popup-menu::before {
-    content: '';
-    position: absolute;
-    top: 100%; /* Attached to the bottom of the menu */
-    left: 0;
-    width: 100%;
-    height: 30px; /* Extends down invisibly to cover the gap */
-    background: transparent;
-}
-
-/* Decorative arrow (Keep this as is) */
+/* Arrow decoration (Pointing Left) */
 .popup-menu::after {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
+    /* 箭头改到左侧 */
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg); /* 旋转角度调整 */
     width: 10px; height: 10px;
     background: #222;
-    border-right: 1px solid #444;
+    border-left: 1px solid #444; /* 边框调整 */
     border-bottom: 1px solid #444;
+    border-right: none;
+    border-top: none;
 }
 
 /* Links inside the popup */
@@ -450,17 +456,18 @@ body.lang-zh { font-family: var(--font-zh); font-weight: 300; }
 }
 
 /* =========================================
-   MOBILE ADAPTATION (移动端自适应系统)
+   HOME PAGE MOBILE ADAPTATION 
    ========================================= */
 
-/* 1. 竖屏锁定层样式 (默认不显示) */
+/* --- 1. 竖屏锁定层 (Portrait Lock) --- */
+/* 默认隐藏，只有在竖屏且宽度小于768px时显示 */
 #orientation-lock {
-    display: none; /* 默认隐藏 */
+    display: none;
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
     background-color: #000;
-    z-index: 9999; /* 确保在最顶层 */
+    z-index: 99999;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -470,13 +477,13 @@ body.lang-zh { font-family: var(--font-zh); font-weight: 300; }
 }
 
 .lock-icon {
-    font-size: 60px;
-    margin-bottom: 20px;
+    font-size: 50px;
+    margin-bottom: 15px;
     animation: rotateIcon 2s infinite linear;
 }
 
 .lock-title {
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: 2px;
     margin-bottom: 10px;
     border-bottom: 2px solid var(--accent-red);
@@ -484,122 +491,127 @@ body.lang-zh { font-family: var(--font-zh); font-weight: 300; }
 }
 
 .lock-msg {
-    font-family: var(--font-zh); /* 用无衬线字体更易读 */
-    font-size: 14px;
+    font-family: var(--font-zh);
+    font-size: 12px;
     color: #666;
     line-height: 1.5;
 }
 
-/* 简单的旋转动画 */
 @keyframes rotateIcon {
     0% { transform: rotate(0deg); }
-    25% { transform: rotate(-90deg); } /* 模拟手机横过来 */
+    25% { transform: rotate(-90deg); }
     100% { transform: rotate(-90deg); }
 }
 
-/* 2. 【核心逻辑】检测竖屏手机 */
-/* 当屏幕宽度小于 768px 且处于竖屏状态时触发 */
+/* 触发竖屏锁定 */
 @media screen and (max-width: 768px) and (orientation: portrait) {
-    /* 显示锁定层 */
-    #orientation-lock {
-        display: flex;
-    }
-    
-    /* 隐藏页面所有其他内容，防止滚动或交互 */
-    #app-container, 
-    #language-tag, 
-    #footer-nav,
-    #bg-overlay {
-        display: none !important;
-    }
+    #orientation-lock { display: flex; }
+    /* 隐藏主界面所有内容，防止背景乱动 */
+    #app-container, #language-tag, #footer-nav { display: none !important; }
 }
 
-/* 3. 【核心逻辑】检测横屏手机 (适配与缩小) */
-/* 当高度很小(手机横屏通常高度<500px) 且 处于横屏状态时触发 */
+
+/* --- 2. 横屏掌机模式 (Landscape Mini Mode) - 最终完美版 --- */
 @media screen and (max-height: 500px) and (orientation: landscape) {
     
-    /* --- A. 全局缩小 --- */
-    html {
-        font-size: 12px; /* 降低根字体大小，这会让所有 rem 单位变小 */
-    }
-
-    /* --- B. 容器适配 --- */
+    /* A. 主容器全屏化 */
     #app-container {
-        width: 100vw;       /* 占满整个屏幕宽度 */
-        height: 100vh;      /* 占满高度 */
-        max-width: none;    /* 移除最大宽度限制 */
-        border: none;       /* 移除边框以节省空间 */
-        box-shadow: none;
-        background: rgba(18, 18, 20, 0.95); /* 背景加深，防止杂乱 */
+        width: 100vw;
+        height: 100dvh; 
+        min-height: 0 !important; /* 解除高度限制 */
+        
+        max-width: none;
+        border: none;
+        background: rgba(18, 18, 20, 0.95);
+        box-sizing: border-box;
+        overflow: hidden; 
+        
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
     }
 
-    /* --- C. 布局调整 --- */
-    /* 侧边栏变窄 */
-    #sidebar {
-        width: 40px; 
-        gap: 10px;
-    }
-    .year-filter {
-        font-size: 10px; /* 字体更小 */
-        padding: 5px 0;
-    }
-
-    /* Grid 区域 */
-    #work-grid-area {
-        padding: 10px 10px 60px 10px; /* 底部留出空间给 footer */
-        gap: 8px;
-    }
-    /* 在手机小横屏上，4列可能太挤，改为 5列反而因为横屏更宽而合适，或者保持4列 */
-    /* 这里我们保持 4 列，但减小间距 */
-
-    /* 右侧详情栏 */
-    #detail-panel {
-        padding: 15px 20px 60px 20px; /* 上下左右留白减少 */
-        overflow-y: auto; /* 允许滚动 */
-    }
-
-    /* 字体缩放 */
-    #work-title { font-size: 24px; }
-    #work-time { font-size: 12px; margin-bottom: 10px; }
-    #work-intro-text { font-size: 12px; line-height: 1.4; }
-    
-    /* 按钮缩小 */
-    #view-detail-btn {
-        padding: 5px 15px;
-        font-size: 12px;
-        margin-top: 10px;
-    }
-
-    /* --- D. 语言标签调整 --- */
+    /* B. 语言标签 (右下角) */
     #language-tag {
-        top: 10px;
-        right: 10px;
-        width: 100px; /* 变小 */
-        transform: scale(0.8); /* 整体缩小 */
-        transform-origin: top right;
+        top: auto;
+        bottom: 25px;
+        right: 25px;
+        width: 110px;
+        transform: scale(0.75);
+        transform-origin: bottom right;
+        z-index: 2000;
+        box-shadow: 0 0 15px rgba(0,0,0,0.8);
     }
 
-    /* --- E. 底部导航栏调整 --- */
+    /* C. 【核心改动】侧边栏 (Sidebar) - 直接隐藏 */
+    #sidebar {
+        display: none !important; /* 手机横屏时不显示年份筛选，节省空间 */
+    }
+
+    /* D. 底部导航栏 (独占左下角) */
     #footer-nav {
-        bottom: 0;
-        padding: 5px 0;
-        background: rgba(0, 0, 0, 0.8); /* 增加背景色防止文字看不清 */
-        border-top: 1px solid #333;
-        height: 35px;
-        align-items: center;
+        bottom: 25px;
+        left: 25px; /* 稍微留点边距 */
+        gap: 12px;
+        z-index: 2000; /* 确保在最上层 */
     }
-    
     .footer-btn {
-        font-size: 10px;
+        font-size: 11px;
+        padding: 5px 12px; /* 加大一点点击区域 */
+        background: rgba(0, 0, 0, 0.85);
+        border: 1px solid rgba(255,255,255,0.15); 
+        border-left: 2px solid transparent;
+        backdrop-filter: blur(5px); /* 增加磨砂质感 */
     }
-    
-    /* 调整弹出菜单的位置，防止被切掉 */
     .popup-menu {
-        bottom: 35px; /* 紧贴 footer 顶部 */
-        min-width: 90px;
+        min-width: 100px;
+        margin-left: 12px;
     }
-    .popup-link {
-        padding: 5px 0;
-        font-size: 10px;
+
+    /* E. 中间网格 (Grid Area) */
+    #work-grid-area {
+        flex: 1;
+        min-width: 0;
+        box-sizing: border-box;
+        
+        /* 因为去掉了 Sidebar，我们可以给左边加一点 padding 让网格不贴边 */
+        /* 或者留出空间给左下角的导航栏（虽然导航栏是悬浮的，但视觉上最好避开） */
+        padding: 15px 5px 15px 25px; 
+        
+        grid-template-columns: repeat(4, 1fr);
+        
+        height: 100%; 
+        overflow-y: scroll;
+        overflow-x: hidden;
+        
+        /* 底部留白，防止最后一个格子被左下角的导航挡住 */
+        padding-bottom: 50px; 
+        /* 左下角留白，防止第一个格子被导航挡住 (如果列表很长) */
+        /* 其实 navigation 是 fixed 的，所以 grid 会在它下面滚动 */
+        
+        -webkit-overflow-scrolling: touch;
     }
+
+    /* F. 右侧详情面板 (Detail Panel) */
+    #detail-panel {
+        flex: 0 0 40%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 10px;
+        justify-content: flex-start;
+        
+        height: 100%;
+        overflow-y: scroll;
+        
+        padding-top: 25px;
+        padding-bottom: 80px; /* 防止被右下角语言标签挡住 */
+        
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* 字体微调 */
+    #work-title { font-size: 24px; margin-bottom: 8px; line-height: 1.1; }
+    #work-time { font-size: 12px; margin-bottom: 15px; }
+    #work-intro-text { font-size: 12px; line-height: 1.5; margin-bottom: 25px; }
+    #view-detail-btn { padding: 8px 25px; font-size: 13px; }
 }
