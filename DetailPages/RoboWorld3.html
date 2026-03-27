@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project #11 - Robo World 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+SC:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleDetail.css">
+</head>
+<body class="lang-en">
+
+    <div id="orientation-lock">
+        <div class="lock-content">
+            <div class="lock-icon">⟳</div>
+            <h2 class="lock-title">SYSTEM LOCKED</h2>
+            <p class="lock-msg">PLEASE ROTATE DEVICE<br>TO ACCESS DATA</p>
+        </div>
+    </div>
+
+    <div class="detail-container">
+        
+        <header class="detail-header">
+            <a href="../index.html" class="back-btn">
+                <span class="arrow">&lt;&lt;</span> RETURN
+            </a>
+            <div class="header-meta">
+                <span class="project-id">ID: #11</span>
+                <span class="project-year">2026.04.</span>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <div class="gallery-section">
+                
+                <div class="gallery-scroll-container" id="galleryScroll">
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/yY1t4b5K/DSC02765.jpg" alt="Project View 1">
+                        <div class="item-overlay"></div> 
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/vHYkFNKk/Weixin_Image_20260308175839_797_5.jpg" alt="Project View 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/90VSf8QJ/DSC02787.jpg" alt="Project View 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/MHDLf7cq/DSC02807.jpg" alt="Project View 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/NMNTyLgm/屏幕截图_2026_03_27_111302.png" alt="Project View 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/sXnSB1Vq/屏幕截图_2026_03_27_093854.png" alt="Project View 6">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/50PvHjxB/屏幕截图_2026_03_27_111313.png" alt="Project View 7">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/50PvHjxG/屏幕截图_2026_03_27_050937.png" alt="Project View 8">
+                    </div>
+                </div>
+
+                <div class="gallery-controls">
+                    <div class="scroll-bar-track">
+                        <div class="scroll-bar-thumb" id="scrollThumb"></div>
+                    </div>
+                    <div class="gallery-counter">
+                        <span id="currentIdx">01</span> / <span id="totalIdx">08</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h1 class="project-title">Robo World - Taste Machine</h1> 
+                <div class="divider-line"></div>
+
+                <div class="text-body">
+                    <p class="en-text">
+                      The game demo is on the way.
+                    </p>
+                    <br>
+                    <p class="zh-text">
+                      游戏施工中。。。请耐心等待。
+                    </p>
+                </div>
+
+                <div class="specs-box">
+                    <div class="spec-row">
+                        <span class="label">TECHNICAL TOOLS:</span>
+                        <span class="val">Unity</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="label">AI TOOLS:</span>
+                        <span class="val">ChatGPT, Gemini, JiMeng</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal-overlay">
+        <span class="modal-close">&times; CLOSE</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-content" id="modalImg">
+            <div class="modal-frame"></div>
+        </div>
+    </div>
+
+    <script src="scriptDetail.js"></script>
+</body>
+</html>
